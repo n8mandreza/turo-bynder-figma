@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .text-01 {
+    @apply text-grey-900 dark:text-grey-75;
+    @apply fill-grey-900 dark:fill-grey-75
+  }
+
+  .text-02 {
+    @apply text-grey-600 dark:text-grey-300;
+  }
+
+  .interactive-text {
+    @apply text-blurple-400 dark:text-blurpleA-300;
+  }
+
+  .interactive-01 {
+    @apply bg-blurple-400 dark:bg-blurpleA-400;
+  }
+
+  .screen-01 {
+    @apply bg-white dark:bg-grey-950;
+  }
+
+  .screen-02 {
+    @apply bg-grey-50 dark:bg-grey-900;
+  }
+
+  .surface-01 {
+    @apply bg-white dark:bg-grey-850;
+  }
+
+  .surface-02 {
+    @apply bg-grey-50 dark:bg-grey-800;
+  }
+
+  .surface-sticky {
+    @apply bg-white dark:bg-grey-900;
+  }
+
+  .stroke-01 {
+    @apply border-grey-100 dark:border-grey-750;
+  }
+
+  .stroke-02 {
+    @apply border-grey-900 dark:border-grey-75;
+  }
+
+  .interactive-stroke {
+    @apply border-blurple-400 dark:border-blurpleA-300;
+  }
+
+  .interactive-stroke-02 {
+    @apply border-grey-200 dark:border-grey-700;
+  }
+
+  .interactive-focus {
+    @apply outline-blurple-400 dark:outline-blurpleA-300;
+  }
+
+  .interactive-disabled {
+    @apply bg-grey-100 dark:bg-grey-800;
+  }
+
+  .interactive-fg-disabled {
+    @apply text-grey-400 dark:text-grey-400;
+    @apply fill-grey-400 dark:fill-grey-400;
+  }
+}

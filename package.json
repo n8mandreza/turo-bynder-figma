@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "@create-figma-plugin/ui": "^3.1.0",
+    "@create-figma-plugin/utilities": "^3.1.0",
+    "pkce-challenge": "^4.1.0",
+    "preact": ">=10",
+    "react-router-dom": "^6.22.1"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^3.1.0",
+    "@create-figma-plugin/tsconfig": "^3.1.0",
+    "@figma/plugin-typings": "*",
+    "concurrently": ">=8",
+    "tailwindcss": ">=3",
+    "typescript": ">=4"
+  },
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "tailwindcss --input ./src/input.css --output ./src/output.css",
+    "build:js": "build-figma-plugin --typecheck --minify",
+    "watch": "npm run build:css && concurrently npm:watch:css npm:watch:js",
+    "watch:css": "tailwindcss --input ./src/input.css --output ./src/output.css --watch",
+    "watch:js": "build-figma-plugin --typecheck --watch"
+  },
+  "figma-plugin": {
+    "editorType": [
+      "figma"
+    ],
+    "id": "1381050062397011474",
+    "name": "Turo Bynder",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx",
+    "networkAccess": {
+      "allowedDomains": [
+        "https://assets.turo.com",
+        "https://turo-bynder-oauth.vercel.app",
+        "https://turo-bynder-assets.vercel.app",
+        "https://turo.bynder.com"
+      ],
+      "reasoning": "This plugin accesses resources from Bynder via their API."
+    }
+  }
+}
