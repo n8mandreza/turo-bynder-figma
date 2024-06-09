@@ -51,8 +51,32 @@ export default async function () {
     }
   };
 
-  // showUI({
-  //   height: 640,
-  //   width: 440
-  // })
+  function renderImage(imgData: Uint8Array) {
+    let imageHash = figma.createImage(new Uint8Array(imgData)).hash
+
+    if (figma.currentPage.selection.length > 0) {
+      for (const node of figma.currentPage.selection) {
+        if ("fills" in node) {
+          node.fills = [
+            { type: "IMAGE", scaleMode: "FILL", imageHash },
+          ]
+        }
+      }
+    } else {
+      const nodes: Array<SceneNode> = []
+      const rect = figma.createRectangle()
+      rect.x = figma.viewport.center.x
+      rect.y = figma.viewport.center.y
+      rect.resize(400, 400)
+      rect.fills = [
+        { type: "IMAGE", scaleMode: "FILL", imageHash },
+      ]
+      figma.currentPage.appendChild(rect)
+      nodes.push(rect)
+      figma.currentPage.selection = nodes
+      figma.viewport.scrollAndZoomIntoView(nodes)
+    }
+  }
+
+  on('IMG-DATA', renderImage)
 }
