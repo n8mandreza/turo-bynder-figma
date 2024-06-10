@@ -23,8 +23,9 @@ export default async function () {
         'ACCESS_TOKEN',
         message.accessToken
       );
+
+      console.log(message)
     }
-    console.log(figma.clientStorage.keysAsync())
   };
 
   // Get the existing access token if we already have it

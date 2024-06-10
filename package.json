@@ -38,6 +38,7 @@
         "https://turo.bynder.com"
       ],
       "reasoning": "This plugin accesses resources from Bynder via their API."
-    }
+    },
+    "documentAccess": "dynamic-page"
   }
 }
