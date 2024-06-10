@@ -24,6 +24,7 @@ export default async function () {
         message.accessToken
       );
     }
+    console.log(figma.clientStorage.keysAsync())
   };
 
   // Get the existing access token if we already have it
@@ -31,9 +32,10 @@ export default async function () {
 
   figma.ui.postMessage({
     message: 'GET_EXISTING_ACCESS_TOKEN',
-    accessToken: accessToken || null,
-    // add origin
-  });
+    accessToken: accessToken || null
+  }); // add origin
+
+  console.log(figma.clientStorage.keysAsync())
 
   // Inform the UI with the same message when we receive a new token
   figma.ui.onmessage = async (message) => {
@@ -45,9 +47,8 @@ export default async function () {
   
       figma.ui.postMessage({
         message: 'GET_EXISTING_ACCESS_TOKEN',
-        accessToken: message.accessToken,
-        // add origin
-      });
+        accessToken: message.accessToken
+      }); // add origin
     }
   };
 
@@ -78,5 +79,9 @@ export default async function () {
     }
   }
 
-  on('IMG-DATA', renderImage)
+  figma.ui.onmessage = async (message) => {
+    if (message.message === 'IMG_DATA') {
+      renderImage(message.imgData)
+    }
+  }
 }
