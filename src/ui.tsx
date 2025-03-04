@@ -1,9 +1,9 @@
 // This file is the default plugin UI entrypoint.
 // This file isn't currently in use because figma.showUI in main.ts 
 // points to a public URL instead of this file.
-import { render, useWindowResize } from '@create-figma-plugin/ui'
-import { h } from 'preact'
+import { render } from '@create-figma-plugin/ui'
 import '!./output.css'
+import React from 'preact/compat'
 
 function Plugin () {
   return (
