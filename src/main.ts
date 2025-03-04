@@ -1,3 +1,5 @@
+// Use npm run watch to watch for code changes
+
 import { on, showUI } from '@create-figma-plugin/utilities'
 import { ResizeWindowHandler } from './types'
 

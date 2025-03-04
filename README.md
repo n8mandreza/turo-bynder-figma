@@ -1,12 +1,14 @@
-# Preact Tailwind Css
+# Turo Assets (Figma Plugin Main Entrypoint)
 
-## Development guide
+## About
 
-*This plugin is built with [Create Figma Plugin](https://yuanqing.github.io/create-figma-plugin/).*
+This plugin is built with [Create Figma Plugin](https://yuanqing.github.io/create-figma-plugin/).
+It's built with Preact but doesn't manage the plugin UI, only interaction with the Figma API.
+The plugin UI is hosted by the [turo-bynder-assets](https://github.com/n8mandreza/turo-bynder-assets) application and rendered in an iframe.
 
 ### Pre-requisites
 
-- [Node.js](https://nodejs.org) – v20
+- [Node.js](https://nodejs.org)
 - [Figma desktop app](https://figma.com/downloads/)
 
 ### Build the plugin
